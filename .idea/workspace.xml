@@ -4,40 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/BookDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/MySqlDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/PublisherDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/model/Publisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/PublisherService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/util/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/util/TokenHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bookedit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bookshelf.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bookedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bookshelf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/jquery-3.4.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/js.cookie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/login.html" afterDir="false" />
+    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/artifact.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Event.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -55,16 +59,76 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GlassFish 5.0.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.0.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="artifact">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="artifact" />
+        </option>
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -81,10 +145,38 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="210" y="0" width="1536" height="917" key="#Project_Structure" timestamp="1638452315522">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="210" y="0" width="1536" height="917" key="#Project_Structure/0.0.1920.917@0.0.1920.917" timestamp="1638452315522" />
+    <state x="410" y="51" width="1145" height="849" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1638452317338">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="410" y="51" width="1145" height="849" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.917@0.0.1920.917" timestamp="1638452317338" />
+    <state x="1155" y="43" width="561" height="837" key="#com.intellij.ide.util.MemberChooser" timestamp="1638453666069">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="1155" y="43" width="561" height="837" key="#com.intellij.ide.util.MemberChooser/0.0.1920.917@0.0.1920.917" timestamp="1638453666069" />
+    <state x="1042" y="89" width="786" height="745" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1638451788384">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="1042" y="89" width="786" height="745" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.917@0.0.1920.917" timestamp="1638451788384" />
+    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2" timestamp="1638451855659">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2/0.0.1920.917@0.0.1920.917" timestamp="1638451855659" />
     <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1638451768979">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
     <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1638451768979" />
+    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2" timestamp="1638451859099">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2/0.0.1920.917@0.0.1920.917" timestamp="1638451859099" />
   </component>
 </project>
