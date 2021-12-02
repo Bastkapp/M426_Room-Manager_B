@@ -5,7 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/Dao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/MySqlDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/PublisherDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/data/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/model/Publisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/PublisherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/util/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/bzz/book/util/TokenHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bookedit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bookshelf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/bookedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/bookshelf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/js.cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +39,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="21jObuCdB9Q5r77lQLP50lY2ieq" />
   <component name="ProjectViewState">
@@ -24,6 +56,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -36,5 +77,14 @@
       <workItem from="1638451107460" duration="1000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1638451768979">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1638451768979" />
   </component>
 </project>
