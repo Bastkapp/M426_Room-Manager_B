@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Reservation.java" afterDir="false" />
+    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M426_Room-Manager_B.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Reservation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +61,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1638451768979">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1638451768979" />
   </component>
 </project>

@@ -8,7 +8,7 @@ import java.sql.Date;
 @Data
 @Builder(toBuilder = true)
 public class Reservation {
-    private final int id;
+    private int id;
     private int eventid;
     private int roomid;
     private Date start;
