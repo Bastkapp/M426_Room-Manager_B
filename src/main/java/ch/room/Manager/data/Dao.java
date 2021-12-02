@@ -8,6 +8,7 @@ public interface Dao<T, K> {
         throw new UnsupportedOperationException();
     }
 
+
     default T getEntity(K k) {
         throw new UnsupportedOperationException();
     }

@@ -12,6 +12,7 @@ import java.util.Map;
 public class EventDAO implements Dao<Event, String>{
 
 
+
     @Override
     public List<Event> getAll() {
 
