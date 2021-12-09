@@ -1,7 +1,7 @@
 package ch.roomManager.db;
 
+import ch.roomManager.service.Config;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +31,7 @@ public class MySqlDB {
     /**
      * Close resultSet and prepared statement
      */
-    static void sqlClose() {
+    public static void sqlClose() {
         try {
             if (getResultSet() != null) getResultSet().close();
             if (getPrepStmt() != null) getPrepStmt().close();
@@ -46,9 +46,22 @@ public class MySqlDB {
      *
      * @return connection
      */
-    static Connection getConnection() throws SQLException {
-        String url = MySqlDB.class.getResource("db.url");
-        return DriverManager.getConnection(url, "user", "password");
+    public static Connection getConnection() {
+        try {
+            if (connection == null ||
+                    connection.isClosed() ||
+                    !connection.isValid(2)) {
+                InitialContext initialContext = new InitialContext();
+                DataSource dataSource = (DataSource) initialContext.lookup(
+                        Config.getProperty("jdbcRessource")
+                );
+                setConnection(dataSource.getConnection());
+            }
+        } catch (NamingException | SQLException namingException) {
+            namingException.printStackTrace();
+            throw new RuntimeException();
+        }
+        return connection;
     }
 
     /**

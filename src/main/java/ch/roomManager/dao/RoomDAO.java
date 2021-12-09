@@ -1,8 +1,8 @@
 package ch.roomManager.dao;
 
 import ch.roomManager.db.MySqlDB;
-import ch.roomManager.models.Room;
 
+import ch.roomManager.models.Room;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
