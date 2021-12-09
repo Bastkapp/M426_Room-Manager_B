@@ -1,5 +1,6 @@
 package ch.roomManager.data;
 
+import ch.roomManager.db.MySqlDB;
 import ch.roomManager.models.Event;
 
 import java.sql.ResultSet;
@@ -10,8 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 public class EventDAO implements Dao<Event, String>{
-
-
 
     @Override
     public List<Event> getAll() {
@@ -63,7 +62,7 @@ public class EventDAO implements Dao<Event, String>{
 
     private void setValues(ResultSet resultSet, Event event)
             throws SQLException{
-        event.setEventUUID(resultSet.getString("eventUUID"));
-        event.setEventUUID(resultSet.getString("event"));
+        event.setId(resultSet.getString("eventUUID"));
+        event.setId(resultSet.getString("event"));
     }
 }
