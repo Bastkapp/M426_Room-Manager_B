@@ -1,4 +1,4 @@
-package ch.room.Manager.data;
+package ch.roomManager.data;
 
 import ch.roomManager.models.Event;
 
