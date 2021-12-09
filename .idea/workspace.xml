@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Room.java" afterDir="false" />
+    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="final removed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/data/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -145,7 +144,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+    <MESSAGE value="final removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="final removed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="0" width="1536" height="917" key="#Project_Structure" timestamp="1638452315522">
@@ -164,18 +164,18 @@
       <screen x="0" y="0" width="1920" height="917" />
     </state>
     <state x="1042" y="89" width="786" height="745" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.917@0.0.1920.917" timestamp="1638451788384" />
-    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2" timestamp="1638451855659">
+    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2" timestamp="1638456788186">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
-    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2/0.0.1920.917@0.0.1920.917" timestamp="1638451855659" />
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1638451768979">
+    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2/0.0.1920.917@0.0.1920.917" timestamp="1638456788186" />
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1639051892791">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1638451768979" />
-    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2" timestamp="1638454969177">
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1639051892791" />
+    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2" timestamp="1638456795115">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
-    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2/0.0.1920.917@0.0.1920.917" timestamp="1638454969177" />
+    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2/0.0.1920.917@0.0.1920.917" timestamp="1638456795115" />
     <state x="601" y="0" width="708" height="917" key="git4idea.branch.GitSmartOperationDialog" timestamp="1638454948848">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
