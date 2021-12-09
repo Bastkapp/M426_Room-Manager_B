@@ -6,8 +6,9 @@ import lombok.Data;
 @Data
 @Builder(toBuilder = true)
 public class Event {
-    private final int id;
+    private int id;
     private String title;
     private String description;
     private String organiser;
+
 }
