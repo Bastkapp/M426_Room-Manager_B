@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="final removed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/data/Dao.java" afterDir="false" />
+    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,40 +12,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="M426_Room-Manager_B" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="main" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectId" id="21jObuCdB9Q5r77lQLP50lY2ieq" />
   <component name="ProjectViewState">
@@ -58,9 +41,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -69,65 +54,22 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="GlassFish 5.0.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.0.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="artifact">
-          <settings />
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="DOMAIN" value="domain1" />
-        <option name="PRESERVE" value="false" />
-        <option name="COMPATIBILITY" value="false" />
-        <option name="VIRTUAL_SERVER" />
-        <option name="USERNAME" value="admin" />
-        <option name="CREDENTIAL_ALIAS" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="GlassFish" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="9009" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="artifact" />
-        </option>
       </method>
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="" />
@@ -136,49 +78,40 @@
       <option name="presentableId" value="Default" />
       <updated>1638451105198</updated>
       <workItem from="1638451107460" duration="1000" />
+      <workItem from="1638452085993" duration="3277000" />
+      <workItem from="1639052650495" duration="298000" />
     </task>
+    <task id="LOCAL-00001" summary="Korrektur Ordnerstruktur">
+      <created>1639052825133</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639052825133</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes" />
-    <MESSAGE value="final removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="final removed" />
+    <MESSAGE value="Korrektur Ordnerstruktur" />
+    <option name="LAST_COMMIT_MESSAGE" value="Korrektur Ordnerstruktur" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="210" y="0" width="1536" height="917" key="#Project_Structure" timestamp="1638452315522">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="210" y="0" width="1536" height="917" key="#Project_Structure/0.0.1920.917@0.0.1920.917" timestamp="1638452315522" />
-    <state x="410" y="51" width="1145" height="849" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1638452317338">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="410" y="51" width="1145" height="849" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.917@0.0.1920.917" timestamp="1638452317338" />
-    <state x="1155" y="43" width="561" height="837" key="#com.intellij.ide.util.MemberChooser" timestamp="1638453666069">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="1155" y="43" width="561" height="837" key="#com.intellij.ide.util.MemberChooser/0.0.1920.917@0.0.1920.917" timestamp="1638453666069" />
-    <state x="1042" y="89" width="786" height="745" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1638451788384">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="1042" y="89" width="786" height="745" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.917@0.0.1920.917" timestamp="1638451788384" />
-    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2" timestamp="1638456788186">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2/0.0.1920.917@0.0.1920.917" timestamp="1638456788186" />
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1639051892791">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1639051892791" />
-    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2" timestamp="1638456795115">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2/0.0.1920.917@0.0.1920.917" timestamp="1638456795115" />
-    <state x="601" y="0" width="708" height="917" key="git4idea.branch.GitSmartOperationDialog" timestamp="1638454948848">
-      <screen x="0" y="0" width="1920" height="917" />
-    </state>
-    <state x="601" y="0" width="708" height="917" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.917@0.0.1920.917" timestamp="1638454948848" />
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" />
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" />
   </component>
 </project>
