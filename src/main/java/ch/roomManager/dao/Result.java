@@ -1,4 +1,4 @@
-package ch.roomManager.util;
+package ch.roomManager.dao;
 
 /**
  * resultcodes for data layer

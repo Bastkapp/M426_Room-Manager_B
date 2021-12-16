@@ -1,7 +1,7 @@
 package ch.roomManager.dao;
 
 import ch.roomManager.db.MySqlDB;
-import ch.roomManager.models.Room;
+import ch.roomManager.models.Event;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,51 +9,56 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RoomDAO implements Dao<Room, Integer> {
+public class EventDAO implements Dao<Event, Integer> {
 
   @Override
-  public List<Room> getAll() {
-    List<Room> roomList = new ArrayList<>();
-    String sqlQuery = "SELECT roomId, name, description FROM room;";
+  public List<Event> getAll() {
+    List<Event> eventList = new ArrayList<>();
+    String sqlQuery = "SELECT eventId, title, description, organiser FROM event;";
     try {
       ResultSet resultSet = MySqlDB.sqlSelect(sqlQuery);
       while (resultSet.next()) {
-        roomList.add(Room.builder()
+        eventList.add(Event.builder()
             .id(resultSet.getInt(1))
-            .name(resultSet.getString(2))
+            .title(resultSet.getString(2))
             .description(resultSet.getString(3))
+            .organiser(resultSet.getString(4))
             .build());
       }
+
     } catch (SQLException sqlEx) {
       MySqlDB.printSQLException(sqlEx);
       throw new RuntimeException();
     } finally {
       MySqlDB.sqlClose();
     }
-    return roomList;
+    return eventList;
   }
 
+
   @Override
-  public Room getEntity(Integer roomId) {
+  public Event getEntity(Integer eventId) {
     Map<Integer, Integer> values = new HashMap<>();
-    String sqlQuery = "SELECT roomId, name, description FROM room WHERE roomId=?;";
-    values.put(1, roomId);
+    String sqlQuery = "SELECT eventId, title, description, organiser FROM event WHERE eventId=?;";
+    values.put(1, eventId);
     try {
       ResultSet resultSet = MySqlDB.sqlSelect(sqlQuery, values);
       if (resultSet.next()) {
-        return Room.builder()
+        return Event.builder()
             .id(resultSet.getInt(1))
-            .name(resultSet.getString(2))
+            .title(resultSet.getString(2))
             .description(resultSet.getString(3))
+            .organiser(resultSet.getString(4))
             .build();
       }
 
     } catch (SQLException sqlEx) {
-      MySqlDB.printSQLException(sqlEx);
+
+      sqlEx.printStackTrace();
       throw new RuntimeException();
     } finally {
       MySqlDB.sqlClose();
     }
-    return Room.builder().build();
+    return Event.builder().build();
   }
 }
