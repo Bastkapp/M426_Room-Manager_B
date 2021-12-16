@@ -60,6 +60,31 @@ public class EventDAO implements Dao<Event, String>{
 
     }
 
+    public Integer count() {
+
+
+        ResultSet resultSet = null;
+        String sqlQuery;
+        int eventCount = 0;
+        try {
+            sqlQuery =
+                    "SELECT COUNT(eventUUID)" +
+                            " FROM Event";
+
+            resultSet = MySqlDB.sqlSelect(sqlQuery);
+            if (resultSet.next()) {
+                eventCount = resultSet.getInt(1);
+            }
+        } catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
+            throw new RuntimeException();
+
+
+        } finally {
+            return eventCount;
+        }
+    }
+
     private void setValues(ResultSet resultSet, Event event)
             throws SQLException{
         event.setId(resultSet.getString("eventUUID"));
