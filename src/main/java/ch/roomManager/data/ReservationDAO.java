@@ -1,7 +1,7 @@
 package ch.roomManager.data;
 
 import ch.roomManager.db.MySqlDB;
-import ch.roomManager.models.Event;
+import ch.roomManager.models.Reservation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,19 +10,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EventDAO implements Dao<Event, String>{
+public class ReservationDAO implements Dao<Reservation, String>{
 
     @Override
-    public List<Event> getAll() {
+    public List<Reservation> getAll() {
 
-        List<Event> eventList = new ArrayList<>();
+        List<Reservation> reservationList = new ArrayList<>();
         try {
             String sqlQuery = "";
             ResultSet resultSet = MySqlDB.sqlSelect(sqlQuery);
             while (resultSet.next()) {
-                Event event = new Event();
-                setValues(resultSet, event);
-                eventList.add(event);
+                Reservation reservation = new Reservation();
+                setValues(resultSet, reservation);
+                reservationList.add(reservation);
             }
 
         } catch (SQLException sqlEx) {
@@ -31,22 +31,22 @@ public class EventDAO implements Dao<Event, String>{
         } finally {
             MySqlDB.sqlClose();
         }
-        return eventList;
+        return reservationList;
     }
 
 
     @Override
-    public Event getEntity(String eventUUID) {
-        Event event = new Event();
+    public Reservation getEntity(String reservationUUID) {
+        Reservation reservation = new Reservation();
 
         String sqlQuery =
                 "";
         Map<Integer, String> values = new HashMap<>();
-        values.put(1, eventUUID);
+        values.put(1, reservationUUID);
         try {
             ResultSet resultSet = MySqlDB.sqlSelect(sqlQuery, values);
             if (resultSet.next()) {
-                setValues(resultSet, event);
+                setValues(resultSet, reservation);
             }
 
         } catch (SQLException sqlEx) {
@@ -56,7 +56,7 @@ public class EventDAO implements Dao<Event, String>{
         } finally {
             MySqlDB.sqlClose();
         }
-        return event;
+        return reservation;
 
     }
 
@@ -65,15 +65,15 @@ public class EventDAO implements Dao<Event, String>{
 
         ResultSet resultSet = null;
         String sqlQuery;
-        int eventCount = 0;
+        int reservationCount = 0;
         try {
             sqlQuery =
-                    "SELECT COUNT(eventUUID)" +
-                            " FROM Event";
+                    "SELECT COUNT(reservationUUID)" +
+                            " FROM Reservation";
 
             resultSet = MySqlDB.sqlSelect(sqlQuery);
             if (resultSet.next()) {
-                eventCount = resultSet.getInt(1);
+                reservationCount = resultSet.getInt(1);
             }
         } catch (SQLException sqlEx){
             sqlEx.printStackTrace();
@@ -81,13 +81,13 @@ public class EventDAO implements Dao<Event, String>{
 
 
         } finally {
-            return eventCount;
+            return reservationCount;
         }
     }
 
-    private void setValues(ResultSet resultSet, Event event)
+    private void setValues(ResultSet resultSet, Reservation reservation)
             throws SQLException{
-        event.setId(resultSet.getInt("eventUUID"));
-        event.setId(resultSet.getInt("event"));
+        reservation.setId(resultSet.getInt("reservationUUID"));
+        reservation.setId(resultSet.getInt("reservation"));
     }
 }

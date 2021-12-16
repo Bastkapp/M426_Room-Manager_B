@@ -6,17 +6,17 @@ import lombok.Data;
 @Data
 @Builder(toBuilder = true)
 public class Event {
-    private String id;
+    private int id;
     private String title;
     private String description;
     private String organiser;
 
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
