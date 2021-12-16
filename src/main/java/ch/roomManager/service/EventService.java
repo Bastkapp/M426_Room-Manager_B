@@ -1,4 +1,4 @@
-package ch.roomManager.util;
+package ch.roomManager.service;
 
 import ch.roomManager.data.Dao;
 import ch.roomManager.data.EventDAO;
