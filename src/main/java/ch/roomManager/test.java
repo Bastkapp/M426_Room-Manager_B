@@ -9,6 +9,6 @@ public class test {
 
     public static void main(String[] args) {
         List<Room> roomList = new RoomDAO().getAll();
-        roomList.forEach(Room::printString);
+        roomList.forEach(Room::toString);
     }
 }

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="ReservationService created">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/service/ReservationService.java" afterDir="false" />
+    <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="changes made">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/name.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +53,8 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -60,7 +62,14 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.test">
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.roomManager.test" />
+      <module name="M426_Room-Manager_B" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GlassFish 5.0.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.0.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -112,13 +121,16 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="name" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.test" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -163,7 +175,8 @@
     <MESSAGE value="EventService created" />
     <MESSAGE value="moved to service folder" />
     <MESSAGE value="ReservationService created" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReservationService created" />
+    <MESSAGE value="changes made" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes made" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="0" width="1536" height="917" key="#Project_Structure" timestamp="1639664623782">
@@ -178,16 +191,18 @@
       <screen x="0" y="0" width="1920" height="917" />
     </state>
     <state x="674" y="0" width="561" height="917" key="#com.intellij.ide.util.MemberChooser/0.0.1920.917@0.0.1920.917" timestamp="1639665461579" />
-    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2" timestamp="1639666079216">
+    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2" timestamp="1639666251470">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
-    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2/0.0.1920.917@0.0.1920.917" timestamp="1639666079216" />
+    <state x="391" y="0" width="1127" height="917" key="CommitChangelistDialog2/0.0.1920.917@0.0.1920.917" timestamp="1639666251470" />
     <state x="316" y="0" width="1386" height="917" key="Maven.ArtifactSearchDialog" timestamp="1639663238574">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
     <state x="316" y="0" width="1386" height="917" key="Maven.ArtifactSearchDialog/0.0.1920.917@0.0.1920.917" timestamp="1639663238574" />
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1639658490487" />
-    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1639658490487" />
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor" timestamp="1639666576209">
+      <screen x="0" y="0" width="1920" height="917" />
+    </state>
+    <state x="374" y="0" width="1536" height="917" key="SettingsEditor/0.0.1920.917@0.0.1920.917" timestamp="1639666576209" />
     <state x="355" y="68" width="1200" height="785" key="Vcs.Push.Dialog.v2" timestamp="1639664551114">
       <screen x="0" y="0" width="1920" height="917" />
     </state>
