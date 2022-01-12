@@ -14,14 +14,14 @@ import java.util.*;
  * @author Bastian Kappeler, help: Bissbert
  */
 
-public class DynamicDAO<T> {
+public class DynamicDao<T> {
 
   private final Class<T> tClass;
   private final List<Field> attributes;
   private final Field idField;
   private final String tableName;
 
-  public DynamicDAO(Class<T> tClass) {
+  public DynamicDao(Class<T> tClass) {
     this.tClass = tClass;
     attributes = new ArrayList<>();
 
@@ -75,7 +75,7 @@ public class DynamicDAO<T> {
     return null;
   }
 
-  public Result save(T t) {
+  public void save(T t) {
     String sqlQuery = "REPLACE " + tableName + " SET " + getFieldSetString();
 
     try {
@@ -88,7 +88,6 @@ public class DynamicDAO<T> {
         }
         MySqlDB.getPrepStmt().setObject(i + 1, attributes.get(i).get(t));
       }
-
       MySqlDB.sqlUpdate();
     } catch (SQLException e) {
       MySqlDB.printSQLException(e);
@@ -98,10 +97,9 @@ public class DynamicDAO<T> {
     } finally {
       MySqlDB.sqlClose();
     }
-    return MySqlDB.getResult();
   }
 
-  public Result delete(Integer id) {
+  public void delete(Integer id) {
     String sqlQuery = "DELETE FROM " + tableName + " WHERE " + idField.getName() + "=?;";
     Map<Integer, Integer> values = new HashMap<>();
     values.put(1, id);
@@ -113,7 +111,6 @@ public class DynamicDAO<T> {
     } finally {
       MySqlDB.sqlClose();
     }
-    return MySqlDB.getResult();
   }
 
   public Integer count() {
@@ -123,14 +120,13 @@ public class DynamicDAO<T> {
       if (resultSet.next()) {
         return resultSet.getInt(1);
       }
-
+      return -1;
     } catch (SQLException sqlEx) {
       MySqlDB.printSQLException(sqlEx);
       throw new RuntimeException();
     } finally {
       MySqlDB.sqlClose();
     }
-    return -1;
   }
 
   private T entityFromResultSet(ResultSet resultSet) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
@@ -142,7 +138,7 @@ public class DynamicDAO<T> {
       if (attribute.isAnnotationPresent(SubId.class)) {
         Field subIdField = getIdField(attribute);
         int subId = resultSet.getInt(subIdField.getName());
-        attribute.set(t, new DynamicDAO<>(attribute.getType()).getEntity(subId));
+        attribute.set(t, new DynamicDao<>(attribute.getType()).getEntity(subId));
         continue;
       }
 

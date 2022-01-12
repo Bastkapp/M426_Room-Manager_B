@@ -55,10 +55,10 @@ public class MySqlDB {
 
       if (prepStmt == null) return Result.ERROR;
       int affectedRows = getPrepStmt().executeUpdate();
-      if (affectedRows <= 2) {
-        return Result.SUCCESS;
-      } else if (affectedRows == 0) {
+      if (affectedRows == 0) {
         return setResult(Result.NOACTION);
+      } else if (affectedRows <= 2) {
+        return Result.SUCCESS;
       } else {
         return setResult(Result.ERROR);
       }
