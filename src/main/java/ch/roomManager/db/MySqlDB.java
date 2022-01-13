@@ -1,260 +1,193 @@
 package ch.roomManager.db;
 
 import ch.roomManager.service.Config;
-import ch.roomManager.util.Result;
+import ch.roomManager.dao.Result;
 
+import java.sql.*;
+import java.util.Map;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Map;
-
-/**
- * common methods for MySQL database
- * <p>
- * M151: BookshelfDB
- *
- * @author Marcel Suter
- */
 
 public class MySqlDB {
-    private static Connection connection = null;
-    private static PreparedStatement prepStmt;
-    private static ResultSet resultSet;
 
-    /**
-     * default constructor: defeat instantiation
-     */
-    private MySqlDB() {
+  private static Connection connection = null;
+  private static PreparedStatement prepStmt;
+  private static ResultSet resultSet;
+  private static Result result = null;
+
+  private MySqlDB() {
+  }
+
+  public static synchronized ResultSet sqlSelect(String sqlQuery) throws SQLException {
+    setPrepStmt(sqlQuery);
+    return sqlSelect();
+  }
+
+  public static ResultSet sqlSelect(String sqlQuery, Map<Integer, ?> values) throws SQLException {
+    setPrepStmt(sqlQuery, values);
+    return MySqlDB.sqlSelect();
+  }
+
+  public static synchronized ResultSet sqlSelect() throws SQLException {
+    setResultSet(null);
+    try {
+      setResultSet(getPrepStmt().executeQuery());
+    } catch (SQLException sqlException) {
+      printSQLException(sqlException);
+      throw sqlException;
     }
+    return getResultSet();
+  }
 
-    /**
-     * Execute SELECT-Query without dynamic values and return the resultset
-     *
-     * @param sqlQuery the query to be executed
-     * @return ResultSet the data retrieved from the database
-     * @throws SQLException Syntax errors
-     */
-    public static synchronized ResultSet sqlSelect(String sqlQuery)
-            throws SQLException {
-        return sqlSelect(sqlQuery, null);
+  public static Result sqlUpdate(String sqlQuery) throws SQLException {
+    setPrepStmt(sqlQuery);
+    return MySqlDB.sqlUpdate();
+  }
+
+  public static Result sqlUpdate(String sqlQuery, Map<Integer, ?> values) throws SQLException {
+    setPrepStmt(sqlQuery, values);
+    return MySqlDB.sqlUpdate();
+  }
+
+  public static Result sqlUpdate() throws SQLException {
+    try {
+
+      if (prepStmt == null) return Result.ERROR;
+      int affectedRows = getPrepStmt().executeUpdate();
+      if (affectedRows == 0) {
+        return setResult(Result.NOACTION);
+      } else if (affectedRows <= 2) {
+        return Result.SUCCESS;
+      } else {
+        return setResult(Result.ERROR);
+      }
+    } catch (SQLException sqlException) {
+      String sqlState = sqlException.getSQLState();
+      if (sqlState.equals("23000")) {
+        return setResult(Result.DUPLICATE);
+      } else {
+        printSQLException(sqlException);
+        throw sqlException;
+      }
+    } finally {
+      sqlClose();
     }
+  }
 
-    /**
-     * execute SELECT-query with dynamic values and return the resultset
-     *
-     * @param sqlQuery the query to be executed
-     * @param values   map of values to be inserted
-     * @return ResultSet the data retrieved from the database
-     * @throws SQLException Syntax errors
-     */
-    public static synchronized ResultSet sqlSelect(String sqlQuery, Map<Integer, String> values)
-            throws SQLException {
-        setResultSet(null);
+  private static void setPrepStmt(String sqlQuery, Map<Integer, ?> values) throws SQLException {
+    setPrepStmt(sqlQuery);
+    if (values != null) {
+      setPrepStmt(values);
+    }
+  }
 
-        try {
-            setPrepStmt(getConnection().prepareStatement(sqlQuery));
+  private static void setPrepStmt(Map<Integer, ?> values) throws SQLException {
 
-            if (values != null) {
-                setValues(values);
-            }
-            setResultSet(getPrepStmt().executeQuery());
+    for (Integer i = 1; values.containsKey(i); i++) {
+      if (values.get(i).getClass() == Integer.class)
+        getPrepStmt().setInt(i, (int) values.get(i));
+      else if (values.get(i).getClass() == String.class)
+        getPrepStmt().setString(i, (String) values.get(i));
+    }
+  }
 
-        } catch (SQLException sqlException) {
-            printSQLException(sqlException, sqlQuery);
-            throw sqlException;
+  public static void sqlClose() {
+    try {
+      if (getResultSet() != null) {
+        getResultSet().close();
+      }
+      if (getPrepStmt() != null) {
+        getPrepStmt().close();
+      }
+    } catch (SQLException sqlException) {
+      sqlException.printStackTrace();
+    }
+  }
+
+  static void printSQLException(SQLException sqlEx, String sqlQuery) {
+    System.out.println("Query: " + sqlQuery);
+    System.err.println("Query: " + sqlQuery);
+    printSQLException(sqlEx);
+  }
+
+  public static void printSQLException(SQLException sqlEx) {
+    StringBuilder message = new StringBuilder("ERROR: an SQLException has occured");
+    for (Throwable exception : sqlEx) {
+      if (exception instanceof SQLException) {
+
+        exception.printStackTrace(System.err);
+        message.append("\nSQLState: ").append(((SQLException) exception).getSQLState());
+        message.append("\nError Code: ").append(((SQLException) exception).getErrorCode());
+        message.append("\nMessage: ").append(exception.getMessage());
+
+        Throwable cause = sqlEx.getCause();
+        while (cause != null) {
+          message.append("\nCause: ").append(cause);
+          cause = cause.getCause();
         }
-        return getResultSet();
+      }
+    }
+    System.out.println(message);
+    System.err.println(message);
+  }
+
+  public static Connection getConnection() {
+    try {
+      if (connection == null || !connection.isValid(2)) {
+        InitialContext initialContext = new InitialContext();
+        DataSource dataSource = (DataSource) initialContext.lookup(
+            Config.getProperty("jdbcRessource")
+        );
+        setConnection(dataSource.getConnection());
+      }
+    } catch (NamingException | SQLException namingException) {
+      namingException.printStackTrace();
+      throw new RuntimeException();
+
     }
 
-    /**
-     * execute a query without dynamic values to update the db (INSERT, UPDATE, DELETE, REPLACE)
-     *
-     * @param sqlQuery
-     *            the query to be executed
-     * @return number of affected rows
-     * @throws SQLException
-     */
-    static Result sqlUpdate(String sqlQuery) throws SQLException {
-        return sqlUpdate(sqlQuery, null);
-    }
+    return connection;
+  }
 
-    /**
-     * execute a query with dynamic values to update the db (UPDATE, DELETE, REPLACE)
-     *
-     * @param sqlQuery
-     *            the query to be executed
-     * @param values
-     *            map of values to be inserted
-     * @return number of affected rows
-     * @throws SQLException
-     */
-    static Result sqlUpdate(String sqlQuery, Map<Integer, String> values) throws SQLException {
-        try {
-            setPrepStmt(getConnection().prepareStatement(sqlQuery));
+  private static Connection setConnection(Connection connection) {
+    MySqlDB.connection = connection;
+    return getConnection();
+  }
 
-            if (values != null) {
-                setValues(values);
-            }
-            int affectedRows = getPrepStmt().executeUpdate();
-            if (affectedRows <= 2) {
-                return Result.SUCCESS;
-            } else if (affectedRows == 0) {
-                return Result.NOACTION;
-            } else {
-                return Result.ERROR;
-            }
-        } catch (SQLException sqlException) {
-            String sqlState = sqlException.getSQLState();
-            if (sqlState.equals("23000")) {
-                return Result.DUPLICATE;
-            }else {
-                printSQLException(sqlException);
-                throw sqlException;
-            }
-        }finally {
-            sqlClose();
-        }
-    }
+  public static PreparedStatement getPrepStmt() {
+    return prepStmt;
+  }
 
-    /**
-     * Insert the values into a prepared-Statement
-     *
-     * @param values map with attributename=value
-     * @throws SQLException wrong parameter count
-     */
-    private static void setValues(Map<Integer, String> values) throws SQLException {
+  public static PreparedStatement setPrepStmt(PreparedStatement prepStmt) {
+    MySqlDB.prepStmt = prepStmt;
+    return getPrepStmt();
+  }
 
-        for (Integer i=1; values.containsKey(i); i++) {
-            getPrepStmt().setString(i, values.get(i));
-        }
-    }
+  public static PreparedStatement setPrepStmt(String prepStmt) throws SQLException {
+    getConnection().prepareStatement(prepStmt);
+    return getPrepStmt();
+  }
 
-    /**
-     * Close resultSet and prepared statement
-     */
-    public static void sqlClose() {
-        try {
-            if (getResultSet() != null) getResultSet().close();
-            if (getPrepStmt() != null) getPrepStmt().close();
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        }
-    }
+  public static ResultSet getResultSet() {
+    return resultSet;
+  }
 
-    /**
-     * Show query, error codes and messages for a SQL-Exception
-     *
-     * @param sqlEx the SQLException
-     * @param sqlQuery the executed query
-     */
-    static void printSQLException(SQLException sqlEx, String sqlQuery) {
-        System.out.println("Query: " + sqlQuery);
-        System.err.println("Query: " + sqlQuery);
-        printSQLException(sqlEx);
-    }
+  public static ResultSet setResultSet(ResultSet resultSet) {
+    MySqlDB.resultSet = resultSet;
+    return getResultSet();
+  }
 
-    /**
-     * Show error codes and messages for a SQL-Exception
-     *
-     * @param sqlEx the SQLException
-     */
-    public static void printSQLException(SQLException sqlEx) {
-        StringBuilder message = new StringBuilder("ERROR: an SQLException has occured");
-        for (Throwable exception : sqlEx) {
-            if (exception instanceof SQLException) {
+  public static Result setResult(Result result) {
+    MySqlDB.result = result;
+    return MySqlDB.getResult();
+  }
 
-                exception.printStackTrace(System.err);
-                message.append("\nSQLState: ").append(((SQLException) exception).getSQLState());
-                message.append("\nError Code: ").append(((SQLException) exception).getErrorCode());
-                message.append("\nMessage: ").append(exception.getMessage());
+  public static Result setResult(String result) {
+    return MySqlDB.setResult(Result.valueOf(result));
+  }
 
-                Throwable cause = sqlEx.getCause();
-                while (cause != null) {
-                    message.append("\nCause: ").append(cause);
-                    cause = cause.getCause();
-                }
-            }
-        }
-        System.out.println(message);
-        System.err.println(message);
-    }
-
-
-    /**
-     * Gets the connection: open new connection if needed
-     *
-     * @return connection
-     */
-    public static Connection getConnection() {
-        try {
-            if (connection == null || !connection.isValid(2)) {
-                InitialContext initialContext = new InitialContext();
-                DataSource dataSource = (DataSource) initialContext.lookup(
-                        Config.getProperty("jdbcRessource")
-                );
-                setConnection(dataSource.getConnection());
-            }
-        } catch (NamingException namingException) {
-            namingException.printStackTrace();
-            throw new RuntimeException();
-
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-            throw new RuntimeException();
-        }
-
-        return connection;
-    }
-
-    /**
-     * Sets the connection
-     *
-     * @param connection the value to set
-     */
-
-    private static void setConnection(Connection connection) {
-        MySqlDB.connection = connection;
-    }
-
-    /**
-     * Gets the prepStmt
-     *
-     * @return value of prepStmt
-     */
-    private static PreparedStatement getPrepStmt() {
-        return prepStmt;
-    }
-
-    /**
-     * Sets the prepStmt
-     *
-     * @param prepStmt the value to set
-     */
-
-    public static void setPrepStmt(PreparedStatement prepStmt) {
-        MySqlDB.prepStmt = prepStmt;
-    }
-
-    /**
-     * Gets the resultSet
-     *
-     * @return value of resultSet
-     */
-    public static ResultSet getResultSet() {
-        return resultSet;
-    }
-
-    /**
-     * Sets the resultSet
-     *
-     * @param resultSet the value to set
-     */
-
-    public static void setResultSet(ResultSet resultSet) {
-        MySqlDB.resultSet = resultSet;
-    }
+  public static Result getResult() {
+    return result;
+  }
 }
