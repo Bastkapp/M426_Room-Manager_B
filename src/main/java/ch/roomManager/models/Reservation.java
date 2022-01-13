@@ -18,9 +18,9 @@ public class Reservation {
   private LocalDate start;
   private LocalDate end;
 
-  @SubId()
+  @SubId
   private Event event;
 
-  @SubId()
+  @SubId
   private Room room;
 }

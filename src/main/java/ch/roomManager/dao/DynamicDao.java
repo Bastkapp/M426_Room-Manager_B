@@ -40,7 +40,7 @@ public class DynamicDao<T> {
   }
 
   public T getEntity(Integer id) {
-    String sqlQuery = "SELECT " + getFieldGetString() + " FROM " + tableName + " WHERE " + idField.getName() + "=?;";
+    String sqlQuery = "SELECT " + getFieldGetString() + " FROM " + tableName + " WHERE " + getColumnName(idField) + "=?;";
     Map<Integer, Integer> values = new HashMap<>();
     values.put(1, id);
     try {
@@ -100,7 +100,7 @@ public class DynamicDao<T> {
   }
 
   public void delete(Integer id) {
-    String sqlQuery = "DELETE FROM " + tableName + " WHERE " + idField.getName() + "=?;";
+    String sqlQuery = "DELETE FROM " + tableName + " WHERE " + getColumnName(idField) + "=?;";
     Map<Integer, Integer> values = new HashMap<>();
     values.put(1, id);
     try {
@@ -132,17 +132,17 @@ public class DynamicDao<T> {
   private T entityFromResultSet(ResultSet resultSet) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
     T t = tClass.getDeclaredConstructor(tClass).newInstance();
 
-    idField.set(t, resultSet.getInt(idField.getName()));
+    idField.set(t, resultSet.getInt(getColumnName(idField)));
     for (Field attribute : attributes) {
       if (attribute.isAnnotationPresent(Ignore.class)) continue;
       if (attribute.isAnnotationPresent(SubId.class)) {
         Field subIdField = getIdField(attribute);
-        int subId = resultSet.getInt(subIdField.getName());
+        int subId = resultSet.getInt(getColumnName(subIdField));
         attribute.set(t, new DynamicDao<>(attribute.getType()).getEntity(subId));
         continue;
       }
 
-      attribute.set(t, resultSet.getObject(attribute.getName(), attribute.getType()));
+      attribute.set(t, resultSet.getObject(getColumnName(attribute), attribute.getType()));
     }
 
     return t;
@@ -164,16 +164,16 @@ public class DynamicDao<T> {
 
   private String getFieldString(String delimiter) {
     StringJoiner stringJoiner = new StringJoiner(delimiter);
-    stringJoiner.add(idField.getName());
+    stringJoiner.add(getColumnName(idField));
     for (Field attribute : attributes) {
       if (attribute.isAnnotationPresent(Ignore.class)) continue;
       if (attribute.isAnnotationPresent(SubId.class)) {
-        Field id = getIdField(attribute);
-        stringJoiner.add(id == null ? attribute.getName() : id.getName());
+        Field subId = getIdField(attribute);
+        stringJoiner.add(subId == null ? getColumnName(attribute) : getColumnName(subId));
         continue;
       }
 
-      stringJoiner.add(attribute.getName());
+      stringJoiner.add(getColumnName(attribute));
     }
     return stringJoiner.toString();
   }
@@ -196,6 +196,14 @@ public class DynamicDao<T> {
       }
     }
     return null;
+  }
+
+  private String getColumnName(Field field) {
+    if (field.isAnnotationPresent(Column.class)) {
+      return field.getAnnotation(Column.class).name();
+    }
+
+    return field.getName();
   }
 
 }
