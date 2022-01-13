@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room</title>
+    <link rel="stylesheet" href="css/room_view.css">
+</head>
+<body>
+
+
+<ul id="navBar">
+<li><a href="#home">Home</a></li>
+<li><a class="active" href="#roomView">Room View</a></li>
+<li><a href="Reservation_List.html">Reservationen</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<h1>Room View</h1>
+<div id="slider">
+    <input type="radio" name="slider" id="slide1" checked>
+    <input type="radio" name="slider" id="slide2">
+    <input type="radio" name="slider" id="slide3">
+    <input type="radio" name="slider" id="slide4">
+    <div id="slides">
+        <div id="overflow">
+            <div class="inner">
+                <div class="slide slide_1">
+                    <div class="slide-content">
+                        <h2>Room 1</h2>
+                        <h4>Ausstattung</h4>
+                        <p>10 Tische, 50 Stühle & Küche</p>
+                        <h4>Anzahl Plätze</h4>
+                        <p>50</p>
+                        <h4>Kosten</h4>
+                        <p>150 CHF</p>
+                        <h4>Konditionen</h4>
+                        <p>Im Raum darf nicht geraucht werden.</p>
+                    </div>
+                </div>
+                <div class="slide slide_2">
+                    <div class="slide-content">
+                        <h2>Room 2</h2>
+
+                        <h4>Ausstattung</h4>
+                        <p>4 Tische, 16 Stühle, Beamer & Leinwand</p>
+                        <h4>Anzahl Plätze</h4>
+                        <p>16</p>
+                        <h4>Kosten</h4>
+                        <p>200 CHF</p>
+                        <h4>Konditionen</h4>
+                        <p>Im Raum darf nicht geraucht werden.</p>
+                    </div>
+                </div>
+                <div class="slide slide_3">
+                    <div class="slide-content">
+                        <h2>Room 3</h2>
+                        <h4>Ausstattung</h4>
+                        <p>Mischpult & Stereoanlage</p>
+                        <h4>Anzahl Plätze</h4>
+                        <p>70</p>
+                        <h4>Kosten</h4>
+                        <p>300 CHF</p>
+                        <h4>Konditionen</h4>
+                        <p>Der Raum muss geputzt hinterlassen werden.</p>
+
+                    </div>
+                </div>
+                <div class="slide slide_4">
+                    <div class="slide-content">
+                        <h2>Room 4</h2>
+                        <h4>Ausstattung</h4>
+                        <p> Bühne & 500 Stühle</p>
+                        <h4>Anzah lPlätze</h4>
+                        <p>500</p>
+                        <h4>Kosten</h4>
+                        <p>500 CHF</p>
+                        <h4>Konditionen</h4>
+                        <p>Der Raum muss geputzt hinterlassen werden.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="controls">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+        <label for="slide4"></label>
+    </div>
+    <div id="bullets">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+        <label for="slide4"></label>
+    </div>
+</div>
+<br>
+<div>
+    <Button id="submit"> Raum Mieten</Button>
+</div>
+<script src='./js/Room_View.js'></script>
+</body>
+</html>
