@@ -1,11 +1,8 @@
 package ch.roomManager.service;
 
-import ch.roomManager.data.Dao;
-import ch.roomManager.data.ReservationDAO;
+import ch.roomManager.dao.DynamicDao;
 import ch.roomManager.models.Reservation;
 
-
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -21,6 +18,11 @@ import java.util.List;
 @Path("reservation")
 public class ReservationService {
 
+    private final DynamicDao<Reservation> reservationDao;
+
+    public ReservationService() {
+        this.reservationDao = new DynamicDao<>(Reservation.class);
+    }
 
     /**
      * produces the number of reservations
@@ -33,16 +35,16 @@ public class ReservationService {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response countReservations(
-            @CookieParam("token") String token
+        @CookieParam("token") String token
     ) {
 
         int httpStatus = 200;
-        Integer reservationCount = new ReservationDAO().count();
+        Integer reservationCount = reservationDao.count();
 
         return Response
-                .status(httpStatus)
-                .entity("{\"reservationCount\":" + reservationCount + "}")
-                .build();
+            .status(httpStatus)
+            .entity("{\"reservationCount\":" + reservationCount + "}")
+            .build();
     }
 
     /**
@@ -56,25 +58,24 @@ public class ReservationService {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response listReservations(
-            @CookieParam("token") String token
+        @CookieParam("token") String token
     ) {
 
         int httpStatus = 200;
-        Dao<Reservation, String> reservationDao = new ReservationDAO();
         List<Reservation> reservationList = reservationDao.getAll();
         if (reservationList.isEmpty())
             httpStatus = 404;
 
         return Response
-                .status(httpStatus)
-                .entity(reservationList)
-                .build();
+            .status(httpStatus)
+            .entity(reservationList)
+            .build();
     }
 
     /**
      * reads a single reservation identified by the reservationId
      *
-     * @param reservationUUID the reservationUUID in the URL
+     * @param reservationId the reservationId in the URL
      * @return Response
      */
     @GET
@@ -82,18 +83,17 @@ public class ReservationService {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response readReservation(
-            @QueryParam("uuid") String reservationUUID,
-            @CookieParam("token") String token
+        @QueryParam("id") int reservationId,
+        @CookieParam("token") String token
     ) {
         int httpStatus = 200;
-        Dao<Reservation, String> reservationDAO = new ReservationDAO();
-        Reservation reservation = reservationDAO.getEntity(reservationUUID);
+        Reservation reservation = reservationDao.getEntity(reservationId);
         if (reservation.getStart() == null)
             httpStatus = 404;
 
         return Response
-                .status(httpStatus)
-                .entity(reservation)
-                .build();
+            .status(httpStatus)
+            .entity(reservation)
+            .build();
     }
 }
