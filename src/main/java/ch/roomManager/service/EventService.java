@@ -1,10 +1,8 @@
 package ch.roomManager.service;
 
-import ch.roomManager.data.Dao;
-import ch.roomManager.data.EventDAO;
+import ch.roomManager.dao.DynamicDao;
 import ch.roomManager.models.Event;
 
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -20,6 +18,11 @@ import java.util.List;
 @Path("event")
 public class EventService {
 
+    private final DynamicDao<Event> eventDao;
+
+    public EventService() {
+        this.eventDao = new DynamicDao<>(Event.class);
+    }
 
     /**
      * produces the number of events
@@ -32,16 +35,16 @@ public class EventService {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response countEvents(
-            @CookieParam("token") String token
+        @CookieParam("token") String token
     ) {
 
         int httpStatus = 200;
-        Integer eventCount = new EventDAO().count();
+        Integer eventCount = eventDao.count();
 
         return Response
-                .status(httpStatus)
-                .entity("{\"eventCount\":" + eventCount + "}")
-                .build();
+            .status(httpStatus)
+            .entity("{\"eventCount\":" + eventCount + "}")
+            .build();
     }
 
     /**
@@ -55,25 +58,24 @@ public class EventService {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response listEvents(
-            @CookieParam("token") String token
+        @CookieParam("token") String token
     ) {
 
         int httpStatus = 200;
-        Dao<Event, String> eventDao = new EventDAO();
         List<Event> eventList = eventDao.getAll();
         if (eventList.isEmpty())
             httpStatus = 404;
 
         return Response
-                .status(httpStatus)
-                .entity(eventList)
-                .build();
+            .status(httpStatus)
+            .entity(eventList)
+            .build();
     }
 
     /**
      * reads a single event identified by the eventId
      *
-     * @param eventUUID the eventUUID in the URL
+     * @param eventId the eventId in the URL
      * @return Response
      */
     @GET
@@ -81,18 +83,17 @@ public class EventService {
     @Produces(MediaType.APPLICATION_JSON)
 
     public Response readEvent(
-            @QueryParam("uuid") String eventUUID,
-            @CookieParam("token") String token
+        @QueryParam("eventId") int eventId,
+        @CookieParam("token") String token
     ) {
         int httpStatus = 200;
-        Dao<Event, String> eventDAO = new EventDAO();
-        Event event = eventDAO.getEntity(eventUUID);
+        Event event = eventDao.getEntity(eventId);
         if (event.getTitle() == null)
             httpStatus = 404;
 
         return Response
-                .status(httpStatus)
-                .entity(event)
-                .build();
+            .status(httpStatus)
+            .entity(event)
+            .build();
     }
 }
