@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2248885-69c4-43be-8919-efb1de9eab2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/util/EventService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/Reservation_Edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/data/EventDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/data/EventDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/models/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/roomManager/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/roomManager/service/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Resrevation_List.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/Resrevation_List.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Room_View.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/Room_View.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -48,6 +50,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -60,11 +63,28 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="RunManager">
+    <configuration name="example" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.roomManager.example" />
+      <module name="M426_Room-Manager_B" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.example" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -109,6 +129,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Korrektur Ordnerstruktur" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="641" y="128" width="610" height="647" key="#Web_Browsers" timestamp="1642084291919">
+      <screen x="0" y="0" width="1902" height="899" />
+    </state>
+    <state x="641" y="128" width="610" height="647" key="#Web_Browsers/0.0.1902.899@0.0.1902.899" timestamp="1642084291919" />
     <state x="410" y="51" width="1145" height="849" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1639664401217">
       <screen x="0" y="0" width="1920" height="917" />
     </state>

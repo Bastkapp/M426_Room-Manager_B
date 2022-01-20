@@ -88,7 +88,7 @@ public class ReservationService {
     ) {
         int httpStatus = 200;
         Reservation reservation = reservationDao.getEntity(reservationId);
-        if (reservation.getStart() == null)
+        if (reservation.getClass() == null)
             httpStatus = 404;
 
         return Response

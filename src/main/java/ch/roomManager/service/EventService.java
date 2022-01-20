@@ -88,7 +88,7 @@ public class EventService {
     ) {
         int httpStatus = 200;
         Event event = eventDao.getEntity(eventId);
-        if (event.getTitle() == null)
+        if (event.getClass() == null)
             httpStatus = 404;
 
         return Response

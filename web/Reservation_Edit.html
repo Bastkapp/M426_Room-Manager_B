@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservationen</title>
+    <link rel="stylesheet" href="css/room_view.css">
+</head>
+<body>
+
+
+<ul id="navBar">
+    <li><a href="#home">Home</a></li>
+    <li><a  href="Room_View.html">Room View</a></li>
+    <li><a class="active" href="Reservation_List.html">Reservationen</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class='container'>
+<form id='reservationeditForm' name='reservationedit'>
+    <h1>Reservation bearbeiten</h1>
+    <div id='message' style='color: red;'></div>
+    <div class='form-group row'>
+        <label class='col-sm-2' for='room'>Room</label>
+        <input class='form-control col-sm-8' id='room' name='room' type='number' size='15' maxlength='10' min="1" max='4' required/>
+    </div>
+    <br>
+    <div class='form-group row'>
+        <label class='col-sm-2'for='mieter'>Mieter</label>
+        <input class='form-control col-sm-8' id='mieter' name='mieter' type='text' size='15' maxlength='20' required/>
+    </div>
+    <br>
+    <div class='form-group row'>
+        <label class='col-sm-2' for='telefon'>Telefon</label>
+        <input class='form-control col-sm-8' id='telefon' name='telefon' type='text' size='15' maxlength='20' required/>
+    </div>
+    <br>
+    <div class='form-group row'>
+        <label class='col-sm-2'for='datum'>Datum</label>
+        <input class='form-control col-sm-2' id='datum' name='datum' type='date' size='15' required/>
+    </div>
+    <br>
+    <div class='form-group row'>
+        <label class='col-sm-2'for='startzeit'>Startzeit</label>
+        <input class='form-control col-sm-2' id='startzeit' name='startzeit' type='time' size='15' required/>
+    </div>
+    <br>
+    <div class='form-group row'>
+        <label class='col-sm-2'for='endzeit'>Endzeit</label>
+        <input class='form-control col-sm-2' id='endzeit' name='endzeit' type='time' size='15' required/>
+    </div>
+    <br>
+</form>
+
+
+<div class='form-group row'>
+    <button id='save' type='submit'>Speichern</button>
+    <button id='reset' type='reset'><a href="Reservation_Edit.html">Zurücksetzen</a></button>
+    <button id='cancel' type='button'><a href="Resrevation_List.html">Abbruch</a></button>
+</div>
+</div>
+</body>
+</html>
