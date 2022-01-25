@@ -1,8 +1,10 @@
 package ch.roomManager.service;
 
 import ch.roomManager.dao.DynamicDao;
+import ch.roomManager.dao.Result;
 import ch.roomManager.models.Reservation;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -72,6 +74,51 @@ public class ReservationService {
             .build();
     }
 
+    @POST
+    @Path("save")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response saveReservation(
+            @QueryParam("id") int reservationId,
+            @CookieParam("token") String token
+    ) {
+        int httpStatus;
+        Reservation reservation = reservationDao.getEntity(reservationId);
+        String message;
+        Result result = reservationDao.save(reservation);
+        if (result == Result.SUCCESS) {
+            message = "Reservation erfasst";
+            httpStatus = 200;
+        } else if (result == Result.DUPLICATE) {
+            message = "Diese Reservation existiert bereits.";
+            httpStatus = 422;
+        }
+        else {
+            message = "Fehler beim Speichern der Reservation";
+            httpStatus = 500;
+        }
+        return Response
+                .status(httpStatus)
+                .entity(message)
+                .build();
+    }
+
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteReservation(
+            @QueryParam("id") int reservationId,
+            @CookieParam("token") String token
+    ) {
+        int httpStatus = 200;
+        Reservation reservation = reservationDao.getEntity(reservationId);
+        Result result = reservationDao.delete(reservationId);
+        if (result != Result.SUCCESS) httpStatus = 500;
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
     /**
      * reads a single reservation identified by the reservationId
      *
@@ -88,7 +135,7 @@ public class ReservationService {
     ) {
         int httpStatus = 200;
         Reservation reservation = reservationDao.getEntity(reservationId);
-        if (reservation.getStart() == null)
+        if (reservation == null)
             httpStatus = 404;
 
         return Response
