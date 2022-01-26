@@ -25,7 +25,7 @@ public class DynamicDao<T> {
     this.tClass = tClass;
     attributes = new ArrayList<>();
 
-    final ArrayList<Field> tempList = new ArrayList<Field>(List.of(tClass.getFields()));
+    final ArrayList<Field> tempList = new ArrayList<>(List.of(tClass.getFields()));
     idField = getIdField(tClass);
 
     if (idField == null) {
@@ -152,11 +152,9 @@ public class DynamicDao<T> {
 
   private List<T> listFromResultSet(ResultSet resultSet) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
     List<T> tList = new ArrayList<>();
-
     while (resultSet.next()) {
       tList.add(entityFromResultSet(resultSet));
     }
-
     return tList;
   }
 
@@ -206,6 +204,10 @@ public class DynamicDao<T> {
     }
 
     return field.getName();
+  }
+
+  public Result getResult() {
+    return MySqlDB.getResult();
   }
 
 }
