@@ -22,6 +22,17 @@ function loadReservations() {
                 $("#message").text("Fehler beim Lesen der Reservationen");
             }
         })
+    /**
+     * listener for submitting the form
+     */
+    $("#reservationadminForm").submit(saveReservation);
+
+    /**
+     * listener for button [abbrechen], redirects to bookshelf
+     */
+    $("#cancel").click(function () {
+        window.location.href = "../Reservation_List.html";
+    });
 }
 
 /**
@@ -56,4 +67,29 @@ function clearTable(table) {
     while (table.hasChildNodes()) {
         table.removeChild(table.firstChild);
     }
+}
+
+/**
+ * sends the book data to the webservice
+ * @param form the form being submitted
+ */
+function saveBook(form) {
+    form.preventDefault();
+    var uuid="";
+    if ($.urlParam('uuid') !== null) {
+        uuid = "?uuid=" + $.urlParam('uuid');
+    }
+    $
+        .ajax({
+            url: "./resource/bookshelf/save" + uuid,
+            dataType: "text",
+            type: "POST",
+            data: $("#bookeditForm").serialize()
+        })
+        .done(function (jsonData) {
+            window.location.href = "./bookshelf.html";
+        })
+        .fail(function (xhr, status, errorThrown) {
+            showMessage("error", xhr.responseText);
+        })
 }

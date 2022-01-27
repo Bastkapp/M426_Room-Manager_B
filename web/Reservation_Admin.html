@@ -10,9 +10,9 @@
 
 <ul id="navBar">
     <li><a href="#home">Home</a></li>
-    <li><a  href="Room_View.html">Room View</a></li>
-    <li><a class="active" href="Reservation_List.html">Reservationen</a></li>
-    <li><a class="active" href="Reservation_Admin.html">Reservationen verwalten</a></li>
+    <li><a href="Room_View.html">Room View</a></li>
+    <li><a href="Reservation_List.html">Reservationen</a></li>
+    <li><a class="active" href="Reservation_Admin_Login.html">Reservationen verwalten</a></li>
     <li><a href="#contact">Contact</a></li>
 </ul>
 
@@ -31,5 +31,71 @@
     </tbody>
 </Table>
 </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='author' content='Marcel Suter'/>
+    <meta name='copyright' content='Marcel Suter - BZZ'/>
+    <meta name='project' content='BookDB'/>
+    <meta name='description' content='book form edit'/>
+    <title>Buch bearbeiten</title>
+    <link rel='stylesheet' href='./css/bootstrap.min.css'/>
+
+</head>
+<body>
+<div class='container'>
+    <form id='bookeditForm' name='bookedit'>
+        <h3>Buch bearbeiten</h3>
+        <div id='message' style='color: red;'></div>
+        <button type='button' id='logoff'>Abmelden</button>
+        <div class='form-group row'>
+            <label class='col-sm-2' for='title'>Buchtitel</label>
+            <input class='form-control col-sm-8' id='title' name='title' type='text' size='30' maxlength='40' required/>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-2'for='author'>Autor</label>
+            <input class='form-control col-sm-8' id='author' name='author' type='text' size='30' maxlength='40' required/>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-2' for='publisherUUID'>Verlag</label>
+            <select class='form-control col-sm-8' id='publisherUUID' name='publisherUUID' required>
+            </select>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-2'for='price'>Preis</label>
+            <input class='form-control col-sm-2' id='price' name='price' type='number' min='0.05' max='199.95' step='0.05'/>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-2'for='isbn'>ISBN</label>
+            <input class='form-contro col-sm-4' id='isbn' name='isbn' type='pattern'
+                   pattern='(?=[0-9]{13}|[- 0-9]{17})97[89](-[0-9]{1,5}){3}-[0-9]'/>
+        </div>
+        <div class='form-group row'>
+            <button id='save' type='submit'>Speichern</button>
+            <button id='reset' type='reset'>Zurücksetzen</button>
+            <button id='cancel' type='button'>Abbruch</button>
+        </div>
+    </form>
+</div>
+<script src='./js/jquery-3.4.1.min.js'></script>
+<script src='./js/bootstrap.min.js'></script>
+<script src='./js/bookedit.js'></script>
+<script src='./js/util.js'></script>
+<script src='./js/login.js'></script>
+<script src='./js/js.cookie.js'></script>
 </body>
 </html>
