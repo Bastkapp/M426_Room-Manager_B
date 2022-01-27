@@ -11,7 +11,7 @@ function checkLogin(form)
     }
     else
     {
-        alert("Error Password or Username")
+        alert("Fehlerhaftes Passwort oder Benutzername")
         return false;
     }
 }
