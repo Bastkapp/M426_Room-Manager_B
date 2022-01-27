@@ -3,6 +3,7 @@ package ch.roomManager.service;
 import ch.roomManager.dao.DynamicDao;
 import ch.roomManager.models.Event;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -13,10 +14,10 @@ import java.util.List;
  * <p>
  * Room Manager
  *
- * @author Dominic Lumsden
+ * @author Bastian Kappeler
  */
 @Path("event")
-public class EventService {
+public class EventService extends Service {
 
     private final DynamicDao<Event> eventDao;
 
@@ -38,12 +39,11 @@ public class EventService {
         @CookieParam("token") String token
     ) {
 
-        int httpStatus = 200;
         Integer eventCount = eventDao.count();
 
         return Response
-            .status(httpStatus)
-            .entity("{\"eventCount\":" + eventCount + "}")
+            .status(getHttpStatus())
+            .entity(Integer.toString(eventCount))
             .build();
     }
 
@@ -61,14 +61,40 @@ public class EventService {
         @CookieParam("token") String token
     ) {
 
-        int httpStatus = 200;
         List<Event> eventList = eventDao.getAll();
-        if (eventList.isEmpty())
-            httpStatus = 404;
 
         return Response
-            .status(httpStatus)
+            .status(getHttpStatus())
             .entity(eventList)
+            .build();
+    }
+
+    @POST
+    @Path("save")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response saveEvent(
+        @QueryParam("id") int eventId,
+        @Valid @BeanParam Event event,
+        @CookieParam("token") String token
+    ) {
+        event.setId(eventId);
+        eventDao.save(event);
+
+        return Response
+            .status(getHttpStatus())
+            .build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteEvent (
+        @QueryParam("id") int eventId
+    ) {
+        eventDao.delete(eventId);
+
+        return Response
+            .status(getHttpStatus())
             .build();
     }
 
@@ -86,13 +112,10 @@ public class EventService {
         @QueryParam("eventId") int eventId,
         @CookieParam("token") String token
     ) {
-        int httpStatus = 200;
         Event event = eventDao.getEntity(eventId);
-        if (event.getTitle() == null)
-            httpStatus = 404;
 
         return Response
-            .status(httpStatus)
+            .status(getHttpStatus())
             .entity(event)
             .build();
     }
