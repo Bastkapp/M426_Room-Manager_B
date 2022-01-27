@@ -28,7 +28,7 @@ function loadReservations() {
     $("#reservationadminForm").submit(saveReservation);
 
     /**
-     * listener for button [abbrechen], redirects to bookshelf
+     * listener for button [abbrechen], redirects to reservationsliste
      */
     $("#cancel").click(function () {
         window.location.href = "../Reservation_List.html";
@@ -70,24 +70,24 @@ function clearTable(table) {
 }
 
 /**
- * sends the book data to the webservice
+ * sends the reservation data to the webservice
  * @param form the form being submitted
  */
-function saveBook(form) {
+function saveReservation(form) {
     form.preventDefault();
-    var uuid="";
-    if ($.urlParam('uuid') !== null) {
-        uuid = "?uuid=" + $.urlParam('uuid');
+    var id="";
+    if ($.urlParam('id') !== null) {
+        id = "?id=" + $.urlParam('id');
     }
     $
         .ajax({
-            url: "./resource/bookshelf/save" + uuid,
+            url: "./resource/reservation/save" + id,
             dataType: "text",
             type: "POST",
-            data: $("#bookeditForm").serialize()
+            data: $("#reservationadminForm").serialize()
         })
         .done(function (jsonData) {
-            window.location.href = "./bookshelf.html";
+            window.location.href = "./Reservation_Admin.html";
         })
         .fail(function (xhr, status, errorThrown) {
             showMessage("error", xhr.responseText);
