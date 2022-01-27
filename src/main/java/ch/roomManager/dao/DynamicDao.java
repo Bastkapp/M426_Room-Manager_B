@@ -75,7 +75,7 @@ public class DynamicDao<T> {
     return null;
   }
 
-  public void save(T t) {
+  public Result save(T t) {
     String sqlQuery = "REPLACE " + tableName + " SET " + getFieldSetString();
 
     try {
@@ -97,9 +97,10 @@ public class DynamicDao<T> {
     } finally {
       MySqlDB.sqlClose();
     }
+    return MySqlDB.getResult();
   }
 
-  public void delete(Integer id) {
+  public Result delete(Integer id) {
     String sqlQuery = "DELETE FROM " + tableName + " WHERE " + getColumnName(idField) + "=?;";
     Map<Integer, Integer> values = new HashMap<>();
     values.put(1, id);
@@ -111,6 +112,7 @@ public class DynamicDao<T> {
     } finally {
       MySqlDB.sqlClose();
     }
+    return MySqlDB.getResult();
   }
 
   public Integer count() {
@@ -150,11 +152,9 @@ public class DynamicDao<T> {
 
   private List<T> listFromResultSet(ResultSet resultSet) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
     List<T> tList = new ArrayList<>();
-
     while (resultSet.next()) {
       tList.add(entityFromResultSet(resultSet));
     }
-
     return tList;
   }
 
@@ -204,6 +204,10 @@ public class DynamicDao<T> {
     }
 
     return field.getName();
+  }
+
+  public Result getResult() {
+    return MySqlDB.getResult();
   }
 
 }

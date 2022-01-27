@@ -37,6 +37,7 @@ public class MySqlDB {
       printSQLException(sqlException);
       throw sqlException;
     }
+    if (getResult() == null) setResult(Result.ERROR);
     return getResultSet();
   }
 
@@ -53,7 +54,9 @@ public class MySqlDB {
   public static Result sqlUpdate() throws SQLException {
     try {
 
-      if (prepStmt == null) return Result.ERROR;
+      if (prepStmt == null) {
+        return setResult(Result.ERROR);
+      }
       int affectedRows = getPrepStmt().executeUpdate();
       if (affectedRows == 0) {
         return setResult(Result.NOACTION);
