@@ -6,7 +6,8 @@ import ch.roomManager.dao.annotations.Table;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDate;
+import javax.ws.rs.FormParam;
+import java.time.LocalDateTime;
 
 @Data
 @Builder(toBuilder = true)
@@ -15,8 +16,12 @@ public class Reservation {
 
   @Id
   private int id;
-  private LocalDate start;
-  private LocalDate end;
+
+  @FormParam("start")
+  private LocalDateTime start;
+
+  @FormParam("end")
+  private LocalDateTime end;
 
   @SubId
   private Event event;

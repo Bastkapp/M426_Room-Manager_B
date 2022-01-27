@@ -1,5 +1,6 @@
 package ch.roomManager.service;
 
+import javax.ws.rs.ApplicationPath;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +15,9 @@ import java.util.Properties;
  * @author Marcel Suter (Ghwalin)
  */
 
+@ApplicationPath("/resource")
 public class Config {
-    private static final URL PROPERTIES_PATH = Config.class.getClassLoader().getResource("file.txt");
+    private static final URL PROPERTIES_PATH = Config.class.getClassLoader().getResource("roomManager.properties");
     private static Properties properties = null;
 
     /**

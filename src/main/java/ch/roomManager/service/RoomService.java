@@ -1,7 +1,7 @@
 package ch.roomManager.service;
 
 import ch.roomManager.dao.DynamicDao;
-import ch.roomManager.models.Reservation;
+import ch.roomManager.models.Room;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -10,23 +10,23 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * service controller for reservations
+ * service controller for rooms
  * <p>
  * Room Manager
  *
  * @author Bastian Kappeler
  */
-@Path("reservation")
-public class ReservationService extends Service {
+@Path("room")
+public class RoomService extends Service {
 
-    private final DynamicDao<Reservation> reservationDao;
+    private final DynamicDao<Room> roomDao;
 
-    public ReservationService() {
-        this.reservationDao = new DynamicDao<>(Reservation.class);
+    public RoomService() {
+        this.roomDao = new DynamicDao<>(Room.class);
     }
 
     /**
-     * produces the number of reservations
+     * produces the number of rooms
      *
      * @param token encrypted authorization token
      * @return Response
@@ -35,20 +35,20 @@ public class ReservationService extends Service {
     @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
 
-    public Response countReservations(
+    public Response countRooms(
         @CookieParam("token") String token
     ) {
 
-        Integer reservationCount = reservationDao.count();
+        Integer roomCount = roomDao.count();
 
         return Response
             .status(getHttpStatus())
-            .entity(Integer.toString(reservationCount))
+            .entity(Integer.toString(roomCount))
             .build();
     }
 
     /**
-     * produces a list of all reservations
+     * produces a list of all rooms
      *
      * @param token encrypted authorization token
      * @return Response
@@ -57,28 +57,28 @@ public class ReservationService extends Service {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
 
-    public Response listReservations(
+    public Response listRooms(
         @CookieParam("token") String token
     ) {
 
-        List<Reservation> reservationList = reservationDao.getAll();
+        List<Room> roomList = roomDao.getAll();
 
         return Response
             .status(getHttpStatus())
-            .entity(reservationList)
+            .entity(roomList)
             .build();
     }
 
     @POST
     @Path("save")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response saveReservation(
-        @QueryParam("id") int reservationId,
-        @Valid @BeanParam Reservation reservation,
+    public Response saveRoom(
+        @QueryParam("id") int roomId,
+        @Valid @BeanParam Room room,
         @CookieParam("token") String token
     ) {
-        reservation.setId(reservationId);
-        reservationDao.save(reservation);
+        room.setId(roomId);
+        roomDao.save(room);
 
         return Response
             .status(getHttpStatus())
@@ -88,10 +88,10 @@ public class ReservationService extends Service {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteReservation (
-        @QueryParam("id") int reservationId
+    public Response deleteRoom (
+        @QueryParam("id") int roomId
     ) {
-        reservationDao.delete(reservationId);
+        roomDao.delete(roomId);
 
         return Response
             .status(getHttpStatus())
@@ -99,24 +99,24 @@ public class ReservationService extends Service {
     }
 
     /**
-     * reads a single reservation identified by the reservationId
+     * reads a single room identified by the roomId
      *
-     * @param reservationId the reservationId in the URL
+     * @param roomId the roomId in the URL
      * @return Response
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
 
-    public Response readReservation(
-        @QueryParam("reservationId") int reservationId,
+    public Response readRoom(
+        @QueryParam("roomId") int roomId,
         @CookieParam("token") String token
     ) {
-        Reservation reservation = reservationDao.getEntity(reservationId);
+        Room room = roomDao.getEntity(roomId);
 
         return Response
             .status(getHttpStatus())
-            .entity(reservation)
+            .entity(room)
             .build();
     }
 }
